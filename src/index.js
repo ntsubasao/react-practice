@@ -1,11 +1,5 @@
-import { StrictMode } from "react";
-import ReactDom from "react-dom";
+import React from "react"; //React17ではJSXを使用するだけの場合、Reactのimportは必須ではない
+import ReactDOM from "react-dom";
+import App from "./App"; //他のファイルからインポートことで、コンポーネント化して使うことができる(.カレントディレクトリ内の/Appってことかな？)
 
-import App from "./App";
-
-ReactDom.render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-  document.getElementById("root")
-);
+ReactDOM.render(<App />, document.getElementById("root"));
