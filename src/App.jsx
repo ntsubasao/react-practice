@@ -1,18 +1,17 @@
 import React from "react";
+import ColofulMessage from "./components/ColorfulMessage";
 
 const App = () => {
   const onClickButton = () => alert();
-  const contentStyle = {
-    color: "blue",
-    fontSize: "18px" //font-sizeとCSSでは書かないといけないが、Reactではキャメルケースで書く
-  };
+
   return (
     <>
       <h1 style={{ color: "red" }}>こんにちは！</h1>
-      <p style={contentStyle}>お元気ですか？</p>
+      <ColofulMessage color="blue">お元気ですか</ColofulMessage>
+      <ColofulMessage color="pink">元気です！！</ColofulMessage>
       <button onClick={onClickButton}>ボタン</button>
     </>
   );
-};
+}; //propsとして、colorを今回は入れる（名前は任意）
 
 export default App; //他のファイルでも使えるようにしている
