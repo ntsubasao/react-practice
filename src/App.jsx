@@ -14,15 +14,14 @@ const App = () => {
   };
 
   useEffect(() => {
-    console.log("useEffect!!");
-  }, [num]); //一回だけ表示させて再レンダリングしたくない場合は、第2引数の[]配列を空にする(よく使うらしい),値を入れた場合はその値にだけ関心をもつ(今回ならnum)
-  if (num > 0) {
-    if (num % 3 === 0) {
-      faceShowFlag || setFaceShowFlag(true); //左がFalseの場合、右側の処理をやってくれる(論理演算子を使わないと再レンダリングでエラーがおきる)
-    } else {
-      faceShowFlag && setFaceShowFlag(false); //左がTrueの場合、右側を返す
+    if (num > 0) {
+      if (num % 3 === 0) {
+        faceShowFlag || setFaceShowFlag(true); //左がFalseの場合、右側の処理をやってくれる(論理演算子を使わないと再レンダリングでエラーがおきる)
+      } else {
+        faceShowFlag && setFaceShowFlag(false); //左がTrueの場合、右側を返す
+      }
     }
-  }
+  }, [num]); //一回だけ表示させて再レンダリングしたくない場合は、第2引数の[]配列を空にする(よく使うらしい),値を入れた場合はその値にだけ関心をもつ(今回ならnum)
 
   return (
     <>
@@ -37,6 +36,6 @@ const App = () => {
     </>
   );
 }; //propsとして、colorを今回は入れる（名前は任意）
-//&&(かつ)左の要素がTrueのとき、左を返すという機能がある(FaceShowFlagがTrueのとき,絵文字をレンダリングする)
+//&&(かつ)左の要素がTrueのとき、右を返すという機能がある(FaceShowFlagがTrueのとき,絵文字をレンダリングする)
 
 export default App; //他のファイルでも使えるようにしている
